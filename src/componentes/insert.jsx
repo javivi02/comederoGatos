@@ -13,8 +13,8 @@ const Insert = ({ props }) => {
         <>
             <div className={`relative flex flex-col items-end mx-2 `}>
                 <img onClick={()=> handlerInsert()}
-                     className={`cursor-pointer opacity-95`}
-                    src="src/assets/insert.svg" width='85' height='85' alt=""/>
+                     className={`cursor-pointer`}
+                    src="insert.svg" width='75' height='75' alt=""/>
             </div>
         </>
 

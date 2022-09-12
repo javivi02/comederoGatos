@@ -1,11 +1,16 @@
 import React from "react";
+import {useNavigate} from "react-router-dom";
 
 const Item = ({ item }) => {
+
+    const navigate = useNavigate();
 
     const handlerEditar = (item) => {
 
         console.log(`Editar`)
         console.log(item)
+
+        navigate(`/item/${item.id}`)
 
     }
 
