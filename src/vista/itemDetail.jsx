@@ -25,7 +25,7 @@ const ItemDetail = ({ props }) => {
         <>
             <div className={`flex flex-col items-center justify-center`}>
 
-                <main className={`h-screen w-full bg-cyan-700 sm:rounded-lg sm:w-[39rem] sm:mt-10`}>
+                <main className={`h-full w-full sm:rounded-lg sm:w-[39rem] sm:mt-10`}>
 
                     <NavBar />
 
@@ -36,17 +36,6 @@ const ItemDetail = ({ props }) => {
                             <input className={`rounded text-2xl mx-9 w-44`} type={"time"}
                                    onChange={handleHora} value={hora}/>
                         </div>
-
-                        {/*<div className={`flex items-center justify-center mt-8`}>
-                            <div className={`text-6xl`}>🍕&nbsp;&nbsp;</div>
-                            <input className={`rounded text-4xl w-24 mx-6`}
-                                   type={"range"} min="1" max="6" step="1"
-                                   value={porciones}
-                                   onChange={handlePorsiones}/>
-
-                            <div className={`text-4xl font-bold text-amber-300`}>{porciones}</div>
-                        </div>*/}
-
 
                         <div className={`flex items-center justify-center mt-8`}>
                             <div className={`text-6xl`}>🍕&nbsp;&nbsp;</div>
