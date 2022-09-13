@@ -14,7 +14,7 @@ const AppRouters = ({ props }) => {
 
                 {/*<NavBar />*/}
                 <Routes>
-                    <Route path="/" element={<Dashboard />} />
+                    <Route path="/*" element={<Dashboard />} />
                     <Route path="item/:id" element={<ItemDetail />} />
 
                 </Routes>
