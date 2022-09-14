@@ -1,10 +1,13 @@
 import React from "react";
+import {useNavigate} from "react-router-dom";
 
 const Insert = ({ props }) => {
 
-    const handlerInsert = () => {
+    const navigate = useNavigate();
 
-        console.log(`Insertar`)
+    const handlerInsert = () => {
+        //console.log(`Insertar`)
+        navigate(`/item`)
 
     }
 

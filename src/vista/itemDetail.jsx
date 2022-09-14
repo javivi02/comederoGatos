@@ -1,5 +1,5 @@
 import React, {useState} from "react";
-import {useParams} from "react-router-dom";
+import {useParams, Link} from "react-router-dom";
 import NavBar from "../componentes/navBar.jsx";
 import {findItemByID} from "../helpers/findItemByID.js";
 
@@ -8,8 +8,8 @@ const ItemDetail = ({ props }) => {
     const {id} = useParams();
     const item = findItemByID(parseInt(id))
 
-    const [hora, setHora] = useState(item.hora);
-    const [porciones, setPorciones] = useState(item.porciones);
+    const [hora, setHora] = useState(item?.hora === undefined ? "" : item.hora);
+    const [porciones, setPorciones] = useState(item?.porciones === undefined ? "" : item.porciones);
 
     const handleHora = (e) => {
         setHora(e.target.value);
@@ -18,6 +18,11 @@ const ItemDetail = ({ props }) => {
     const handlePorsiones = (e) => {
         console.log(e.target.value);
         setPorciones(e.target.value)
+    }
+
+    const handleSave = (e) => {
+
+        console.log("Guardando cambios");
     }
 
     return(
@@ -29,7 +34,7 @@ const ItemDetail = ({ props }) => {
 
                     <NavBar />
 
-                    <div className={`flex flex-col items-center justify-center mt-20 text-3xl`}>
+                    <div className={`flex flex-col items-center justify-center mt-24 text-3xl`}>
 
                         <div className={`flex items-center justify-center`}>
                             <div className={`text-6xl`}>🕘&nbsp;&nbsp;</div>
@@ -68,6 +73,19 @@ const ItemDetail = ({ props }) => {
 
                             </div>
                         </div>
+
+                        <div className="inline-flex mt-24">
+                            <button className="bg-[#E5D54E] text-[#0E7490] font-bold py-2 px-4 rounded mx-6">
+                                <Link to={`/`}>
+                                    🔙
+                                </Link>
+                            </button>
+                            <button className="bg-[#E5D54E] text-[#0E7490] font-bold py-2 px-4 rounded mx-6"
+                            onClick={handleSave}>
+                                Guardar
+                            </button>
+                        </div>
+
                     </div>
 
                 </main>

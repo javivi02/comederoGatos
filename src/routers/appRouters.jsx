@@ -16,6 +16,7 @@ const AppRouters = ({ props }) => {
                 <Routes>
                     <Route path="/*" element={<Dashboard />} />
                     <Route path="item/:id" element={<ItemDetail />} />
+                    <Route path="item" element={<ItemDetail />} />
 
                 </Routes>
 
