@@ -10,7 +10,8 @@ const ItemDetail = ({ props }) => {
     const {id} = useParams();
     const navigate = useNavigate();
 
-    const [comodin, setComodin] = useState(false);
+    const [comodin, setComodin] = useState();
+
     const [item, setItem] = useState({
         hora: "",
         raciones:""
@@ -19,26 +20,39 @@ const ItemDetail = ({ props }) => {
     useEffect(() => {
 
         getHorarioById(id).then(item=>{
-            !item ? setComodin(false) : setComodin(true)
-            setItem(item)
+            /*!item ? setComodin(false) : setComodin(true)
+            setItem(item)*/
+            if (!item){
+                setComodin(false)
+            }else{
+                setComodin(true)
+                setItem(item)
+            }
         })
 
     }, []);
 
     const handleHora = (e) => {
+
         setItem(item =>{
-        return{
-            ...item,
-            hora: e.target.value
-        }})
+            return{
+                ...item,
+                hora: e.target.value
+            }})
+
+
     }
 
     const handleRaciones = (e) => {
+
+
         setItem(item =>{
             return{
                 ...item,
                 raciones: e.target.value
             }})
+
+
     }
 
     const handleSave = (e) => {
@@ -83,7 +97,7 @@ const ItemDetail = ({ props }) => {
                         <div className={`flex items-center justify-center`}>
                             <div className={`text-6xl`}>🕘&nbsp;&nbsp;</div>
                             <input className={`rounded text-2xl mx-9 w-44`} type={"time"}
-                                   onChange={handleHora} value={item?.hora}/>
+                                   onChange={handleHora} value={item.hora}/>
                         </div>
 
                         <div className={`flex items-center justify-center mt-8`}>
@@ -126,6 +140,7 @@ const ItemDetail = ({ props }) => {
                             </button>
                             <button className="bg-[#E5D54E] text-[#0E7490] font-bold py-2 px-4 rounded mx-6"
                             onClick={handleSave}>
+                                {/*{!comodin ? "Guardar" : "Actualizar"}*/}
                                 Guardar
                             </button>
                         </div>
