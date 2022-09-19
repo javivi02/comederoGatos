@@ -1,7 +1,8 @@
 import React from "react";
 import {useNavigate} from "react-router-dom";
+import {deleteHorarioById} from "../services/deleteHorarioById.js";
 
-const Item = ({ item }) => {
+const Item = ({ item, eliminar, setEliminar }) => {
 
     const navigate = useNavigate();
 
@@ -16,8 +17,14 @@ const Item = ({ item }) => {
 
     const handlerEliminar = (item) => {
 
-        console.log(`Eliminar`)
-        console.log(item)
+        if(confirm("Desea eliminar el horario ¿?")){
+            deleteHorarioById(item.id).then(item =>{
+                console.log(item)
+                setEliminar(eliminar + 1)
+            })
+        }
+
+        //setEliminar(eliminar + 1)
 
     }
 
@@ -45,7 +52,7 @@ const Item = ({ item }) => {
                             🍕
                         </div>
                         <div className={`text-xl`}>
-                            &nbsp;&nbsp;{item.porciones}
+                            &nbsp;&nbsp;{item.raciones}
                         </div>
                     </div>
 

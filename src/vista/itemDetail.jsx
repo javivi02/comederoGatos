@@ -1,26 +1,31 @@
 import React, {useEffect, useState} from "react";
-import {useParams, Link} from "react-router-dom";
+import {useParams, Link, useNavigate} from "react-router-dom";
 import NavBar from "../componentes/navBar.jsx";
-import {findItemByID} from "../helpers/findItemByID.js";
 import {getHorarioById} from "../services/getHorarioById.js";
+import {createHorario} from "../services/createHorario.js";
+import {updateHorario} from "../services/updateHorario.js";
 
 const ItemDetail = ({ props }) => {
 
     const {id} = useParams();
-    //const item = findItemByID(parseInt(id))
+    const navigate = useNavigate();
 
-    const [item, setItem] = useState({});
+    const [comodin, setComodin] = useState(false);
+    const [item, setItem] = useState({
+        hora: "",
+        raciones:""
+    });
 
     useEffect(() => {
-        getHorarioById(id).then(setItem)
+
+        getHorarioById(id).then(item=>{
+            !item ? setComodin(false) : setComodin(true)
+            setItem(item)
+        })
 
     }, []);
 
-    const [hora, setHora] = useState (item?.hora);
-    const [porciones, setPorciones] = useState(item?.porciones === undefined ? "" : item.porciones);
-
     const handleHora = (e) => {
-        //setHora(e.target.value);
         setItem(item =>{
         return{
             ...item,
@@ -28,9 +33,7 @@ const ItemDetail = ({ props }) => {
         }})
     }
 
-    const handlePorsiones = (e) => {
-        /*console.log(e.target.value);
-        setPorciones(e.target.value)*/
+    const handleRaciones = (e) => {
         setItem(item =>{
             return{
                 ...item,
@@ -40,7 +43,30 @@ const ItemDetail = ({ props }) => {
 
     const handleSave = (e) => {
 
-        console.log("Guardando cambios");
+        if (comodin === false){
+            const horario = {
+                hora: item.hora,
+                raciones: item.raciones
+            }
+
+            createHorario(horario).then(item => {
+                console.log(item)
+                navigate(`/`)
+            })
+        }
+
+        else {
+            const horario = {
+                hora: item.hora,
+                raciones: item.raciones
+            }
+
+            updateHorario(item.id, horario).then(item => {
+                console.log(item)
+                navigate(`/`)
+            })
+        }
+
     }
 
     return(
@@ -64,29 +90,29 @@ const ItemDetail = ({ props }) => {
                             <div className={`text-6xl`}>🍕&nbsp;&nbsp;</div>
                             <div>
 
-                                <input type="radio" value="1" name="porciones" checked={item?.raciones == 1}
+                                <input type="radio" value="1" name="raciones" checked={item?.raciones == 1}
                                        className={`mx-2`}
-                                       onChange={handlePorsiones}/>
+                                       onChange={handleRaciones}/>
                                 <label className={`text-lg`}>1</label>
 
-                                <input type="radio" value="2" name="porciones" checked={item?.raciones == 2}
+                                <input type="radio" value="2" name="raciones" checked={item?.raciones == 2}
                                        className={`mx-3`}
-                                        onChange={handlePorsiones}/>
+                                        onChange={handleRaciones}/>
                                 <label className={`text-lg`}>2</label>
 
-                                <input type="radio" value="3" name="porciones" checked={item?.raciones == 3}
+                                <input type="radio" value="3" name="raciones" checked={item?.raciones == 3}
                                        className={`mx-3`}
-                                        onChange={handlePorsiones}/>
+                                        onChange={handleRaciones}/>
                                 <label className={`text-lg`}>3</label>
 
-                                <input type="radio" value="4" name="porciones" checked={item?.raciones == 4}
+                                <input type="radio" value="4" name="raciones" checked={item?.raciones == 4}
                                        className={`mx-3`}
-                                        onChange={handlePorsiones}/>
+                                        onChange={handleRaciones}/>
                                 <label className={`text-lg`}>4</label>
 
-                                <input type="radio" value="5" name="porciones" checked={item?.raciones == 5}
+                                <input type="radio" value="5" name="raciones" checked={item?.raciones == 5}
                                        className={`mx-3`}
-                                    onChange={handlePorsiones}/>
+                                    onChange={handleRaciones}/>
                                 <label className={`text-lg`}>5</label>
 
                             </div>

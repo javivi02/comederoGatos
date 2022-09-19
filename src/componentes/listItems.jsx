@@ -6,12 +6,13 @@ import {getHorarios} from "../services/getHorarios.js";
 const ListItems = ({ props }) => {
 
     const [horarios, setHorarios] = useState([]);
+    const [eliminar, setEliminar] = useState(0);
 
     useEffect(() => {
 
         getHorarios().then(setHorarios)
 
-    }, []);
+    }, [eliminar]);
 
     return(
 
@@ -21,7 +22,10 @@ const ListItems = ({ props }) => {
                 (
                     <Item
                         key={item.id}
-                        item={item} />
+                        item={item}
+                        eliminar={eliminar}
+                        setEliminar={setEliminar}
+                    />
                 ))
             }
 

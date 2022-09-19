@@ -9,11 +9,11 @@ const getHorarioById = async (id) => {
 
         const {data} = await respuesta.json();
 
-        console.log(data[0])
         return data[0];
 
     } catch (err) {
-        throw err;
+        console.warn("Al agregar no existe id de usuario. Error controlado")
+        return false
     }
 
 }
