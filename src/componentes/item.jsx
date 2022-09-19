@@ -1,6 +1,7 @@
 import React from "react";
 import {useNavigate} from "react-router-dom";
 import {deleteHorarioById} from "../services/deleteHorarioById.js";
+import {hourCalculate} from "../helpers/hourCalculate.js";
 
 const Item = ({ item, eliminar, setEliminar }) => {
 
@@ -44,6 +45,9 @@ const Item = ({ item, eliminar, setEliminar }) => {
                         <div className={`text-xl`}>
                             &nbsp;&nbsp;{item.hora}
                         </div>
+                        {/*<div>
+                            {hourCalculate(new Date(), item.hora)}
+                        </div>*/}
                     </div>
 
                     <div onClick={()=> handlerEditar(item)}

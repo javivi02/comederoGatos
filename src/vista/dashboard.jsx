@@ -10,7 +10,7 @@ const Dashboard = ({ props }) => {
         <>
             <div className={`flex flex-col items-center justify-center`}>
 
-                <main className={`h-full w-full sm:rounded-lg sm:w-[39rem] sm:mt-10`}>
+                <main className={`h-full w-full sm:rounded-xl sm:w-[39rem] sm:mt-10 sm:border-4`}>
 
                     <NavBar />
                     <Insert />

@@ -20,11 +20,10 @@ const ItemDetail = ({ props }) => {
     useEffect(() => {
 
         getHorarioById(id).then(item=>{
-            /*!item ? setComodin(false) : setComodin(true)
-            setItem(item)*/
+
             if (!item){
                 setComodin(false)
-            }else{
+            }else {
                 setComodin(true)
                 setItem(item)
             }
@@ -88,11 +87,11 @@ const ItemDetail = ({ props }) => {
         <>
             <div className={`flex flex-col items-center justify-center`}>
 
-                <main className={`h-full w-full sm:rounded-lg sm:w-[39rem] sm:mt-10`}>
+                <main className={`h-full w-full sm:rounded-xl sm:w-[39rem] sm:mt-10 sm:border-4`}>
 
                     <NavBar />
 
-                    <div className={`flex flex-col items-center justify-center mt-24 text-3xl`}>
+                    <div className={`flex flex-col items-center justify-center mt-24 text-3xl mb-8`}>
 
                         <div className={`flex items-center justify-center`}>
                             <div className={`text-6xl`}>🕘&nbsp;&nbsp;</div>
