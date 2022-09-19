@@ -7,8 +7,8 @@ const Item = ({ item }) => {
 
     const handlerEditar = (item) => {
 
-        console.log(`Editar`)
-        console.log(item)
+       /* console.log(`Editar`)
+        console.log(item)*/
 
         navigate(`/item/${item.id}`)
 
