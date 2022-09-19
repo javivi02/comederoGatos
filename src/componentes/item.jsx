@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useEffect, useState} from "react";
 import {useNavigate} from "react-router-dom";
 import {deleteHorarioById} from "../services/deleteHorarioById.js";
 import {hourCalculate} from "../helpers/hourCalculate.js";
@@ -6,11 +6,22 @@ import {hourCalculate} from "../helpers/hourCalculate.js";
 const Item = ({ item, eliminar, setEliminar }) => {
 
     const navigate = useNavigate();
+    const [horaRest, setHoraRest] = useState("");
+
+    useEffect(() => {
+        const intervalo = setInterval(()=>{
+
+            setHoraRest(hourCalculate(new Date(), `${item.hora}:00`))
+
+        }, 1000)
+
+        return () => {
+            clearInterval(intervalo)
+        };
+    }, [horaRest]);
+
 
     const handlerEditar = (item) => {
-
-       /* console.log(`Editar`)
-        console.log(item)*/
 
         navigate(`/item/${item.id}`)
 
@@ -24,9 +35,6 @@ const Item = ({ item, eliminar, setEliminar }) => {
                 setEliminar(eliminar + 1)
             })
         }
-
-        //setEliminar(eliminar + 1)
-
     }
 
     return(
@@ -38,20 +46,20 @@ const Item = ({ item, eliminar, setEliminar }) => {
                 <div className={`flex flex-row items-center justify-between h-24`}>
 
                     <div onClick={()=> handlerEditar(item)}
-                        className={`text-base px-2 flex items-center justify-between`}>
+                        className={`text-base px-2 flex items-center justify-between cursor-pointer`}>
                         <div className={`text-5xl`}>
                             🕘
                         </div>
                         <div className={`text-xl`}>
                             &nbsp;&nbsp;{item.hora}
                         </div>
-                        {/*<div>
-                            {hourCalculate(new Date(), item.hora)}
-                        </div>*/}
+                        <div className={`relative left-8 text-sm`}>
+                            {horaRest}
+                        </div>
                     </div>
 
                     <div onClick={()=> handlerEditar(item)}
-                        className={`text-base px-2 flex items-center justify-between`}>
+                        className={`text-base px-2 flex items-center justify-between cursor-pointer`}>
                         <div className={`text-5xl`}>
                             🍕
                         </div>
