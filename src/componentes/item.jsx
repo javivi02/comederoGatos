@@ -6,7 +6,7 @@ import {hourCalculate} from "../helpers/hourCalculate.js";
 const Item = ({ item, eliminar, setEliminar }) => {
 
     const navigate = useNavigate();
-    const [horaRest, setHoraRest] = useState("");
+    const [horaRest, setHoraRest] = useState("loading...");
 
     useEffect(() => {
         const intervalo = setInterval(()=>{
@@ -53,7 +53,7 @@ const Item = ({ item, eliminar, setEliminar }) => {
                         <div className={`text-xl`}>
                             &nbsp;&nbsp;{item.hora}
                         </div>
-                        <div className={`relative left-8 text-sm`}>
+                        <div className={`relative left-3 text-xs`}>
                             {horaRest}
                         </div>
                     </div>
@@ -64,7 +64,7 @@ const Item = ({ item, eliminar, setEliminar }) => {
                             🍕
                         </div>
                         <div className={`text-xl`}>
-                            &nbsp;&nbsp;{item.raciones}
+                            {item.raciones}
                         </div>
                     </div>
 

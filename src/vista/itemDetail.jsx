@@ -87,8 +87,7 @@ const ItemDetail = ({ props }) => {
         <>
             <div className={`flex flex-col items-center justify-center`}>
 
-                <main className={`h-full w-full sm:rounded-xl sm:w-[39rem] sm:mt-10 sm:border-4 sm:h-[980px]
-                sm:h-[640px]`}>
+                <main className={`h-full w-full sm:rounded-xl sm:w-[39rem] sm:mt-10 sm:border-4 sm:h-[55rem]`}>
 
                     <NavBar />
 
@@ -140,8 +139,8 @@ const ItemDetail = ({ props }) => {
                             </button>
                             <button className="bg-[#E5D54E] text-[#0E7490] font-bold py-2 px-4 rounded mx-6"
                             onClick={handleSave}>
-                                {/*{!comodin ? "Guardar" : "Actualizar"}*/}
-                                Guardar
+                                {!comodin ? "Guardar" : "Actualizar"}
+                                {/*Guardar*/}
                             </button>
                         </div>
 
