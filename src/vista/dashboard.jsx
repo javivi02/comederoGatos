@@ -2,6 +2,7 @@ import React from "react";
 import NavBar from "../componentes/navBar.jsx";
 import Insert from "../componentes/insert.jsx";
 import ListItems from "../componentes/listItems.jsx";
+import Racion from "../componentes/racion.jsx";
 
 const Dashboard = ({ props }) => {
 
