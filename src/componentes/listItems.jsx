@@ -1,8 +1,8 @@
 import React, {useEffect, useState} from "react";
-import {bbdd} from "../bbdd/bbdd.js";
 import Item from "./item.jsx";
 import {getHorarios} from "../services/getHorarios.js";
-import {hourCalculateNext, traduceHora} from "../helpers/hourCalculate.js";
+import {hourCalculate} from "../helpers/hourCalculate.js";
+import NextRacion from "./nextRacion.jsx";
 
 const ListItems = () => {
 
@@ -18,29 +18,24 @@ const ListItems = () => {
 
     useEffect(() => {
         const intervalo = setInterval(()=>{
-            const horas = horarios?.map(item =>item.hora)
-                .map(item => hourCalculateNext(new Date(), `${item}:00`))
-            const resultado = new Date(Math.max (...horas))
-            setNextRacion(traduceHora(resultado))
+
+            // Calculo las horas restantes en base a la hora actual, las ordeno y me quedo con la primera
+            const horasNext = horarios.map(item =>item.hora)
+                .map(item=>hourCalculate(new Date(), `${item}:00`))
+                .sort()[0]
+
+            setNextRacion(horasNext)
         }, 1000)
         return () => {
             clearInterval(intervalo)
         };
     }, [nextRacion]);
 
-
-
     return(
 
         <section>
-            <div className={`flex flex-row items-center mt-4`}>
-                <div className={`font-bold ml-5`}>
-                    Próxima ración en:
-                </div>
-                <div className={`ml-7 text-4xl font-extrabold text-[#E5D54E]`}>
-                    {isNaN(parseInt(nextRacion)) ? "loading..." : nextRacion}
-                </div>
-            </div>
+
+            <NextRacion nextRacion={nextRacion} />
 
             {horarios?.map((item) =>
                 (
