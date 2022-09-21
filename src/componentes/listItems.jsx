@@ -29,7 +29,7 @@ const ListItems = () => {
         return () => {
             clearInterval(intervalo)
         };
-    }, [nextRacion]);
+    }, [nextRacion, eliminar]);
 
     return(
 
