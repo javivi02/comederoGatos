@@ -13,7 +13,7 @@ const Item = ({ item, eliminar, setEliminar }) => {
 
             setHoraRest(hourCalculate(new Date(), `${item.hora}:00`))
 
-        }, 1000)
+        }, 800)
 
         return () => {
             clearInterval(intervalo)

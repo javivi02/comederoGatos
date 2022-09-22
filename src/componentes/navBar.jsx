@@ -1,4 +1,5 @@
 import React from "react";
+import Insert from "./insert.jsx";
 
 const NavBar = ({ props }) => {
 
