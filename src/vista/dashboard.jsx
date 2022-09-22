@@ -13,7 +13,7 @@ const Dashboard = ({ props }) => {
                 <main className={`h-full w-full sm:rounded-xl sm:w-[39rem] sm:mt-10 sm:border-4 sm:h-[55rem]`}>
 
                     <NavBar />
-                    <Insert />
+                    {/*<Insert />*/}
                     <ListItems />
 
                 </main>

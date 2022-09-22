@@ -9,7 +9,7 @@ const ListItems = () => {
 
     const [horarios, setHorarios] = useState([]);
     const [eliminar, setEliminar] = useState(0);
-    const [nextRacion, setNextRacion] = useState("loading...");
+    // const [nextRacion, setNextRacion] = useState("loading...");
 
     useEffect(() => {
 
@@ -17,7 +17,7 @@ const ListItems = () => {
 
     }, [eliminar]);
 
-    useEffect(() => {
+    /*useEffect(() => {
         const intervalo = setInterval(()=>{
 
             // Calculo las horas restantes en base a la hora actual, las ordeno y me quedo con la primera
@@ -31,13 +31,13 @@ const ListItems = () => {
         return () => {
             clearInterval(intervalo)
         };
-    }, [nextRacion, eliminar]);
+    }, [nextRacion, eliminar]);*/
 
     return(
 
         <section>
 
-            <NextRacion nextRacion={nextRacion} />
+            {/*<NextRacion nextRacion={nextRacion} />*/}
 
             {horarios?.map((item) =>
                 (
