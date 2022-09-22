@@ -4,6 +4,8 @@ import NavBar from "../componentes/navBar.jsx";
 import {getHorarioById} from "../services/getHorarioById.js";
 import {createHorario} from "../services/createHorario.js";
 import {updateHorario} from "../services/updateHorario.js";
+import Insert from "../componentes/insert.jsx";
+import NextRacion from "../componentes/nextRacion.jsx";
 
 const ItemDetail = ({ props }) => {
 
@@ -89,7 +91,15 @@ const ItemDetail = ({ props }) => {
 
                 <main className={`h-full w-full sm:rounded-xl sm:w-[39rem] sm:mt-10 sm:border-4 sm:h-[55rem]`}>
 
-                    <NavBar />
+                    <div className={`sticky w-full top-0 bg-[#0E7490] z-40`}>
+                        <nav className={`bg-yellow-300 lineaOblicua backdrop-blur-sm bg-yellow-300/90 -mb-8 sm:rounded-t-lg`}>
+
+                            <div className={`flex flex-col items-center pt-2 text-5xl font-extrabold h-28`}>
+                                😺&nbsp;&nbsp;COCO
+                            </div>
+                        </nav>
+
+                    </div>
 
                     <div className={`flex flex-col items-center justify-center mt-24 text-3xl mb-8`}>
 
