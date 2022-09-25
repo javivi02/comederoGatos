@@ -1,11 +1,9 @@
 import React, {useEffect, useState} from "react";
 import {useParams, Link, useNavigate} from "react-router-dom";
-import NavBar from "../componentes/navBar.jsx";
 import {getHorarioById} from "../services/getHorarioById.js";
 import {createHorario} from "../services/createHorario.js";
 import {updateHorario} from "../services/updateHorario.js";
-import Insert from "../componentes/insert.jsx";
-import NextRacion from "../componentes/nextRacion.jsx";
+
 
 const ItemDetail = ({ props }) => {
 

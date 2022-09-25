@@ -7,7 +7,6 @@ const Insert = ({ props }) => {
     const navigate = useNavigate();
 
     const handlerInsert = () => {
-        //console.log(`Insertar`)
         navigate(`/item`)
 
     }

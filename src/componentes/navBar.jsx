@@ -4,7 +4,7 @@ import {getHorarios} from "../services/getHorarios.js";
 import {hourCalculate} from "../helpers/hourCalculate.js";
 import NextRacion from "./nextRacion.jsx";
 
-const NavBar = ({ props }) => {
+const NavBar = ({ eliminar }) => {
 
     const [horarios, setHorarios] = useState([]);
     const [nextRacion, setNextRacion] = useState("loading...");
@@ -13,7 +13,7 @@ const NavBar = ({ props }) => {
 
         getHorarios().then(setHorarios)
 
-    }, []);
+    }, [eliminar]);
 
     useEffect(() => {
 
@@ -31,7 +31,7 @@ const NavBar = ({ props }) => {
             clearInterval(intervalo)
         };
 
-    }, [nextRacion]);
+    }, [nextRacion, eliminar]);
 
     return(
 
@@ -46,7 +46,6 @@ const NavBar = ({ props }) => {
 
                 <Insert />
                 <NextRacion nextRacion={nextRacion} />
-
 
             </div>
         </>

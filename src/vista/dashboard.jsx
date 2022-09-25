@@ -1,9 +1,11 @@
 import React, {useState} from "react";
 import NavBar from "../componentes/navBar.jsx";
-import Insert from "../componentes/insert.jsx";
+
 import ListItems from "../componentes/listItems.jsx";
 
 const Dashboard = ({ props }) => {
+
+    const [eliminar, setEliminar] = useState(0);
 
     return(
 
@@ -12,9 +14,11 @@ const Dashboard = ({ props }) => {
 
                 <main className={`h-full w-full sm:rounded-xl sm:w-[39rem] sm:mt-10 sm:border-4 sm:h-[57rem]`}>
 
-                    <NavBar />
-                    {/*<Insert />*/}
-                    <ListItems />
+                    <NavBar
+                    eliminar={eliminar}/>
+                    <ListItems
+                    eliminar={eliminar}
+                    setEliminar={setEliminar}/>
 
                 </main>
 
