@@ -40,20 +40,15 @@ const ItemDetail = ({ props }) => {
                 ...item,
                 hora: e.target.value
             }})
-
-
     }
 
     const handleRaciones = (e) => {
-
 
         setItem(item =>{
             return{
                 ...item,
                 raciones: e.target.value
             }})
-
-
     }
 
     const handleSave = (e) => {
@@ -89,10 +84,11 @@ const ItemDetail = ({ props }) => {
         <>
             <div className={`flex flex-col items-center justify-center`}>
 
-                <main className={`h-full w-full sm:rounded-xl sm:w-[39rem] sm:mt-10 sm:border-4 sm:h-[55rem]`}>
+                <main className={`h-full w-full sm:rounded-xl sm:w-[39rem] sm:mt-10 sm:border-4 sm:h-[57rem]`}>
 
                     <div className={`sticky w-full top-0 bg-[#0E7490] z-40`}>
-                        <nav className={`bg-yellow-300 lineaOblicua backdrop-blur-sm bg-yellow-300/90 -mb-8 sm:rounded-t-lg`}>
+                        <nav className={`bg-yellow-300 lineaOblicua backdrop-blur-sm bg-yellow-300/90 -mb-8 
+                                        sm:rounded-t-lg`}>
 
                             <div className={`flex flex-col items-center pt-2 text-5xl font-extrabold h-28`}>
                                 😺&nbsp;&nbsp;COCO

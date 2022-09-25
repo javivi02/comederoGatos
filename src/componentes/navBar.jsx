@@ -36,8 +36,8 @@ const NavBar = ({ props }) => {
     return(
 
         <>
-            <div className={`sticky w-full top-0 bg-[#0E7490] z-40`}>
-                <nav className={`bg-yellow-300 lineaOblicua backdrop-blur-sm bg-yellow-300/90 -mb-8 sm:rounded-t-lg`}>
+            <div className={`sticky w-full top-0 bg-[#0E7490] z-40 sm:rounded`}>
+                <nav className={`bg-yellow-300 lineaOblicua backdrop-blur-sm bg-yellow-300/90 -mb-8`}>
 
                     <div className={`flex flex-col items-center pt-2 text-5xl font-extrabold h-28`}>
                         😺&nbsp;&nbsp;COCO
