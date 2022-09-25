@@ -2,7 +2,6 @@ import React from "react";
 import {BrowserRouter, Navigate, Route, Routes} from "react-router-dom";
 import Dashboard from "../vista/dashboard.jsx";
 import ItemDetail from "../vista/itemDetail.jsx";
-import NavBar from "../componentes/navBar.jsx";
 
 const AppRouters = ({ props }) => {
 
@@ -12,7 +11,6 @@ const AppRouters = ({ props }) => {
 
             <BrowserRouter>
 
-                {/*<NavBar />*/}
                 <Routes>
                     <Route path="/comederoGatos" element={<Dashboard />} />
                     <Route path="item/:id" element={<ItemDetail />} />
