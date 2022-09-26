@@ -2,15 +2,15 @@ import React, {useEffect, useState} from "react";
 import Item from "./item.jsx";
 import {getHorarios} from "../services/getHorarios.js";
 
-const ListItems = ({eliminar, setEliminar}) => {
+const ListItems = ({eliminar, setEliminar, horarios}) => {
 
-    const [horarios, setHorarios] = useState([]);
+    /*const [horarios, setHorarios] = useState([]);
 
     useEffect(() => {
 
         getHorarios().then(setHorarios)
 
-    }, [eliminar]);
+    }, [eliminar]);*/
 
     return(
 
