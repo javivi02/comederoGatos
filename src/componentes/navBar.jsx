@@ -1,19 +1,11 @@
 import React, {useEffect, useState} from "react";
 import Insert from "./insert.jsx";
-import {getHorarios} from "../services/getHorarios.js";
 import {hourCalculate} from "../helpers/hourCalculate.js";
 import NextRacion from "./nextRacion.jsx";
 
 const NavBar = ({ eliminar, horarios }) => {
 
-    //const [horarios, setHorarios] = useState([]);
     const [nextRacion, setNextRacion] = useState("loading...");
-
-    /*useEffect(() => {
-
-        getHorarios().then(setHorarios)
-
-    }, [eliminar]);*/
 
     useEffect(() => {
 
