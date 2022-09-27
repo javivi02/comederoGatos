@@ -28,7 +28,7 @@ const NavBar = ({ eliminar, horarios }) => {
     return(
 
         <>
-            <div className={`sticky w-full top-0 bg-[#0E7490] z-40 sm:rounded`}>
+            <div className={`sticky w-full top-0 bg-[#0E7490] z-40 sm:rounded-xl`}>
                 <nav className={`bg-yellow-300 lineaOblicua backdrop-blur-sm bg-yellow-300/90 -mb-8`}>
 
                     <div className={`flex flex-col items-center pt-2 text-5xl font-extrabold h-28`}>

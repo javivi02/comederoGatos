@@ -84,7 +84,7 @@ const ItemDetail = ({ props }) => {
 
                 <main className={`h-full w-full sm:rounded-xl sm:w-[39rem] sm:mt-10 sm:border-4 sm:h-[57rem]`}>
 
-                    <div className={`sticky w-full top-0 bg-[#0E7490] z-40`}>
+                    <div className={`sticky w-full top-0 bg-[#0E7490] z-40 sm:rounded-xl`}>
                         <nav className={`bg-yellow-300 lineaOblicua backdrop-blur-sm bg-yellow-300/90 -mb-8 
                                         sm:rounded-t-lg`}>
 
