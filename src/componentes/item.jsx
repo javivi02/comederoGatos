@@ -1,15 +1,15 @@
-import React, {useEffect, useState} from "react";
-import {useNavigate} from "react-router-dom";
-import {deleteHorarioById} from "../services/deleteHorarioById.js";
-import {hourCalculate} from "../helpers/hourCalculate.js";
+import React, { useEffect, useState } from 'react'
+import { useNavigate } from 'react-router-dom'
+import { deleteHorarioById } from '../services/deleteHorarioById.js'
+import { hourCalculate } from '../helpers/hourCalculate.js'
 
 const Item = ({ item, eliminar, setEliminar }) => {
 
-    const navigate = useNavigate();
-    const [horaRest, setHoraRest] = useState("loading...");
+    const navigate = useNavigate()
+    const [horaRest, setHoraRest] = useState('loading...')
 
     useEffect(() => {
-        const intervalo = setInterval(()=>{
+        const intervalo = setInterval(() => {
 
             setHoraRest(hourCalculate(new Date(), `${item.hora}:00`))
 
@@ -17,9 +17,8 @@ const Item = ({ item, eliminar, setEliminar }) => {
 
         return () => {
             clearInterval(intervalo)
-        };
-    }, [horaRest]);
-
+        }
+    }, [horaRest])
 
     const handlerEditar = (item) => {
 
@@ -29,15 +28,15 @@ const Item = ({ item, eliminar, setEliminar }) => {
 
     const handlerEliminar = (item) => {
 
-        if(confirm("Desea eliminar el horario ¿?")){
-            deleteHorarioById(item.id).then(item =>{
+        if (confirm('Desea eliminar el horario ¿?')) {
+            deleteHorarioById(item.id).then(item => {
                 console.log(item)
                 setEliminar(eliminar + 1)
             })
         }
     }
 
-    return(
+    return (
 
         <>
 
@@ -45,8 +44,8 @@ const Item = ({ item, eliminar, setEliminar }) => {
 
                 <div className={`flex flex-row items-center justify-between h-24`}>
 
-                    <div onClick={()=> handlerEditar(item)}
-                        className={`text-base px-2 flex items-center justify-between cursor-pointer`}>
+                    <div onClick={() => handlerEditar(item)}
+                         className={`text-base px-2 flex items-center justify-between cursor-pointer`}>
                         <div className={`text-5xl`}>
                             🕘
                         </div>
@@ -58,8 +57,8 @@ const Item = ({ item, eliminar, setEliminar }) => {
                         </div>
                     </div>
 
-                    <div onClick={()=> handlerEditar(item)}
-                        className={`text-base px-2 flex items-center justify-between cursor-pointer`}>
+                    <div onClick={() => handlerEditar(item)}
+                         className={`text-base px-2 flex items-center justify-between cursor-pointer`}>
                         <div className={`text-5xl`}>
                             🍕
                         </div>
@@ -70,7 +69,7 @@ const Item = ({ item, eliminar, setEliminar }) => {
 
                     <div className={`text-lg font-bold px-2`}>
 
-                        <button onClick={()=> handlerEliminar(item)}
+                        <button onClick={() => handlerEliminar(item)}
                                 type="button"
                                 className="text-gray-900 bg-white focus:outline-none
                                 hover:bg-gray-100 focus:ring-4 focus:ring-gray-200 font-medium rounded-lg
@@ -84,7 +83,7 @@ const Item = ({ item, eliminar, setEliminar }) => {
 
         </>
 
-    );
+    )
 }
 
-export default Item;
+export default Item
