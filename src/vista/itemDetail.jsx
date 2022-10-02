@@ -3,6 +3,7 @@ import { useParams, Link, useNavigate } from 'react-router-dom'
 import { getHorarioById } from '../services/getHorarioById.js'
 import { createHorario } from '../services/createHorario.js'
 import { updateHorario } from '../services/updateHorario.js'
+import { socket } from '../componentes/item.jsx'
 
 const ItemDetail = ({ props }) => {
 
@@ -60,8 +61,10 @@ const ItemDetail = ({ props }) => {
 
             createHorario(horario).then(item => {
                 console.log(item)
+                socket.emit('modificado', 'Se ha creado un horario')
                 navigate(`/`)
             })
+
         } else {
             const horario = {
                 hora: item.hora,
@@ -70,8 +73,10 @@ const ItemDetail = ({ props }) => {
 
             updateHorario(item.id, horario).then(item => {
                 console.log(item)
+                socket.emit('modificado', 'Se ha modificado un horario')
                 navigate(`/`)
             })
+
         }
 
     }

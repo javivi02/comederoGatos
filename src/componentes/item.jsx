@@ -1,7 +1,12 @@
 import React, { useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
+import io from 'socket.io-client'
+
 import { deleteHorarioById } from '../services/deleteHorarioById.js'
 import { hourCalculate } from '../helpers/hourCalculate.js'
+import { API } from '../services/config.js'
+
+export const socket = io(API)
 
 const Item = ({ item, eliminar, setEliminar }) => {
 
@@ -31,8 +36,10 @@ const Item = ({ item, eliminar, setEliminar }) => {
         if (confirm('Desea eliminar el horario ¿?')) {
             deleteHorarioById(item.id).then(item => {
                 console.log(item)
+                socket.emit('modificado', 'Se ha eliminado un horario')
                 setEliminar(eliminar + 1)
             })
+
         }
     }
 
