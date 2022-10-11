@@ -1,6 +1,7 @@
 import React from "react";
 import {useNavigate} from "react-router-dom";
 import Racion from "./racion.jsx";
+import Test from './test.jsx'
 
 const Insert = ({ props }) => {
 
@@ -19,6 +20,7 @@ const Insert = ({ props }) => {
                      className={`cursor-pointer ml-4`}
                     src="insert.svg" width='75' height='75' alt=""/>
                 <Racion />
+                <Test />
             </div>
         </>
 
