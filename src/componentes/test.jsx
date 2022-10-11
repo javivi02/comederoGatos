@@ -14,7 +14,7 @@ const Test = ({ props }) => {
 
       <>
          <div onClick={handlerTest}
-              className={`cursor-pointer text-6xl mx-8`}>
+              className={`cursor-pointer text-5xl mx-8`}>
             📢
          </div>
       </>
