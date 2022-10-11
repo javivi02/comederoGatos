@@ -1,25 +1,25 @@
-import React from "react";
-import { racionService } from '../services/racionService.js'
+import React from 'react'
+import { test } from '../services/test.js'
 
 const Test = ({ props }) => {
 
    const handlerTest = () => {
 
-      racionService().then((res) => {
+      test().then((res) => {
          alert(res)
       })
    }
 
-   return(
+   return (
 
       <>
          <div onClick={handlerTest}
-              className={`cursor-pointer text-5xl mx-8`}>
+              className={`cursor-pointer text-5xl mx-6`}>
             📢
          </div>
       </>
 
-   );
+   )
 }
 
-export default Test;
+export default Test
